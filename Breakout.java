@@ -90,7 +90,7 @@ public class Breakout extends GraphicsProgram {
 				rect.setFilled(true);
 				rect.setColor(col);
 				rect.setFillColor(col);
-				add(rect, x+(BRICK_WIDTH+BRICK_SEP)*i,y+(row_no*BRICK_SEP));
+				add(rect, x+(BRICK_WIDTH+BRICK_SEP)*i,y+(row_no*(BRICK_HEIGHT+BRICK_SEP)));
 			}
 			row_no++;
 		}
