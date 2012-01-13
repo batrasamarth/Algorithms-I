@@ -106,15 +106,33 @@ public class Breakout extends GraphicsProgram {
 	 * of the game window
 	 */
 	private void createPaddle(){
-		GRect paddle=new GRect(PADDLE_WIDTH,PADDLE_HEIGHT);
+		paddle=new GRect(PADDLE_WIDTH,PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle,(WIDTH-PADDLE_WIDTH)*0.5,HEIGHT-PADDLE_Y_OFFSET-PADDLE_HEIGHT);
+		last=paddle.getX();
 	}
+	
+	/** tracks the x-cordinate of the mouse movement and synchronises the movement in the
+	 * x direction of the paddle with the movement of mouse
+	 * PRE-CONDITION-mouse listeners must be added
+	 */
+	
+	public void mouseMoved(MouseEvent e){
+		paddle.move(e.getX()-last, 0);
+		last=e.getX();
+	}
+	
+	
 	
 	
 	/** keeps track of the row number using 0 as its initial value
 	 * 0 indicates the first row
 	 */
 	private int row_no=0;
-
+	
+	/** keeps the track of the last recorded x  coordinate of the paddle */
+	private double last;
+	
+	/** paddle is used within multiple methods, that is why it is kept as an instance variable*/
+	private GRect paddle;
 }
