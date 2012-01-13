@@ -114,6 +114,7 @@ public class Breakout extends GraphicsProgram {
 	
 	/** tracks the x-cordinate of the mouse movement and synchronises the movement in the
 	 * x direction of the paddle with the movement of mouse
+	 * IT ALSO TAKES CARE SUCH THAT THE PADDLE DOESN'T CROSS THE RIGHT WALL OF THE WINDOW
 	 * PRE-CONDITION-mouse listeners must be added
 	 */
 	
