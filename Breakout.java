@@ -60,7 +60,43 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
-		/* You fill this in, along with any subsidiary methods */
+		setup();
 	}
+	
+	
+	/** SETUP method definition. it sets up the bricks and 
+	 * the paddle
+	 */
+	private void setup(){
+		createTwoRows(Color.RED);
+		
+	}
+	
+	
+	/** creates two rows of the bricks using the color passed on from setup
+	 * as its argument
+	 * @param col the color passed on to it of which the two rows of bricks will be
+	 */
+	private void createTwoRows(Color col){
+		/* x here indicates the x co-ordinate of the top-left corner of the first brick 
+		 * of first row, similarly y indicates the y co-ordinate of top-left corner of first
+		 * brick of first row
+		 */
+		double x= (WIDTH*0.5) - (((NBRICK_ROWS*BRICK_WIDTH)+((NBRICK_ROWS-1)*BRICK_SEP))*0.5);
+		double y= BRICK_Y_OFFSET;
+		for(int i=0;i<10;i++){
+			GRect rect=new GRect(BRICK_WIDTH,BRICK_HEIGHT);
+			rect.setFilled(true);
+			rect.setColor(col);
+			rect.setFillColor(col);
+			add(rect, x+(BRICK_WIDTH+BRICK_SEP)*i,y+(row_no*BRICK_SEP));
+			
+		}
+	}
+	
+	/** keeps track of the row number using 0 as its initial value
+	 * 0 indicates the first row
+	 */
+	private int row_no=0;
 
 }
