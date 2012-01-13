@@ -65,7 +65,7 @@ public class Breakout extends GraphicsProgram {
 	
 	
 	/** SETUP method definition. it sets up the bricks and 
-	 * the paddle
+	 * the paddle, and adds the mouse listeners
 	 */
 	private void setup(){
 		createTwoRows(Color.RED);
@@ -73,7 +73,8 @@ public class Breakout extends GraphicsProgram {
 		createTwoRows(Color.YELLOW);
 		createTwoRows(Color.GREEN);
 		createTwoRows(Color.CYAN);
-		
+		createPaddle();
+		addMouseListeners();
 		
 	}
 	
@@ -100,6 +101,16 @@ public class Breakout extends GraphicsProgram {
 			row_no++;
 		}
 	}
+	
+	/** generates the paddle in the middle towards the bottom end 
+	 * of the game window
+	 */
+	private void createPaddle(){
+		GRect paddle=new GRect(PADDLE_WIDTH,PADDLE_HEIGHT);
+		paddle.setFilled(true);
+		add(paddle,(WIDTH-PADDLE_WIDTH)*0.5,HEIGHT-PADDLE_Y_OFFSET-PADDLE_HEIGHT);
+	}
+	
 	
 	/** keeps track of the row number using 0 as its initial value
 	 * 0 indicates the first row
