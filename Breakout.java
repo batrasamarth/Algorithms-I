@@ -69,6 +69,11 @@ public class Breakout extends GraphicsProgram {
 	 */
 	private void setup(){
 		createTwoRows(Color.RED);
+		createTwoRows(Color.ORANGE);
+		createTwoRows(Color.YELLOW);
+		createTwoRows(Color.GREEN);
+		createTwoRows(Color.CYAN);
+		
 		
 	}
 	
