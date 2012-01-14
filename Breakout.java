@@ -66,6 +66,7 @@ public class Breakout extends GraphicsProgram {
 		while(true){
 			moveBall();
 			checkForCollisionWithWalls();
+			checkForCollisionPaddleBricks();
 			pause(100);
 		}
 	}
@@ -161,7 +162,10 @@ public class Breakout extends GraphicsProgram {
 		ball.move(vx, vy);
 	}
 	
-	
+	/** checks for the collisions of the ball with the four walls of the application window and
+	 * bounces off the ball if there happens to be a collision, except the lower wall, in which
+	 * case, the ball disappears and a life is lost. 
+	 */
 	private void checkForCollisionWithWalls(){
 		if(ball.getX()>WIDTH-ball.getWidth()){
 			vx=-vx;
@@ -184,7 +188,40 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	/** checks if the ball, has collided with the paddle or the bricks, if the ball has collided
+	 * with the paddle, it bounces off from the paddle and if any brick is the colliding
+	 * object, it removes the brick and again makes it bounce off
+	 */
+	private void checkForCollisionPaddleBricks(){
+		GObject collider=getCollidingObject();
+		
+		if(collider==paddle){
+			vy=-vy;
+		}
+	}
 	
+	
+	private GObject getCollidingObject(){
+		GObject gobj1,gobj2,gobj3,gobj4;
+		gobj1=getElementAt(ball.getX(),ball.getY());
+		gobj2=getElementAt(ball.getX()+(2*BALL_RADIUS),ball.getY());
+		gobj3=getElementAt(ball.getX(),ball.getY()+(2*BALL_RADIUS));
+		gobj4=getElementAt(ball.getX()+(2*BALL_RADIUS),ball.getY()+(2*BALL_RADIUS));
+		
+		if(gobj1!=null){
+			return gobj1;
+		}
+		else if(gobj2!=null){
+			return gobj2;
+		}
+		else if(gobj3!=null){
+			return gobj3;
+		}
+		else if(gobj4!=null){
+			return gobj4;
+		}
+		else return gobj1;
+	}
 	
 	
 	/** keeps track of the row number using 0 as its initial value
