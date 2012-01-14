@@ -205,12 +205,13 @@ public class Breakout extends GraphicsProgram {
 	 * object, it removes the brick and again makes it bounce off
 	 */
 	private void checkForCollisionPaddleBricks(){
-		getCollidingObject();
+		GObject collider=getCollidingObject();
 		
 		if(collider==paddle){
 			vy=-vy;
 		}
 		else
+		if(collider!=null)	
 		{
 			remove(collider);
 			vy=-vy;
@@ -222,7 +223,7 @@ public class Breakout extends GraphicsProgram {
 	 *  if not, then it returns a null value
 	 * @return
 	 */
-	private void getCollidingObject(){
+	private GObject getCollidingObject(){
 		GObject gobj1,gobj2,gobj3,gobj4;
 		gobj1=getElementAt(ball.getX(),ball.getY());
 		gobj2=getElementAt(ball.getX()+(2*BALL_RADIUS),ball.getY());
@@ -230,18 +231,18 @@ public class Breakout extends GraphicsProgram {
 		gobj4=getElementAt(ball.getX()+(2*BALL_RADIUS),ball.getY()+(2*BALL_RADIUS));
 		
 		if(gobj1!=null){
-			collider= gobj1;
+			return gobj1;
 		}
 		else if(gobj2!=null){
-			collider= gobj2;
+			return gobj2;
 		}
 		else if(gobj3!=null){
-			collider= gobj3;
+			return gobj3;
 		}
 		else if(gobj4!=null){
-			collider= gobj4;
+			return gobj4;
 		}
-		
+		else return gobj1;
 	}
 	
 	
@@ -264,5 +265,5 @@ public class Breakout extends GraphicsProgram {
 	/** indicates the velocity of the ball in y-direction which starts with initial velocity 3.0 */
 	private double vy=3.0;
 	
-	private GObject collider;
+	
 }
