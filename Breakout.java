@@ -164,17 +164,23 @@ public class Breakout extends GraphicsProgram {
 	
 	private void checkForCollisionWithWalls(){
 		if(ball.getX()>WIDTH-ball.getWidth()){
-			ball.move(-vx, vy);
+			vx=-vx;
+			double diff=ball.getX()-(WIDTH-ball.getWidth());
+			ball.move(-2*diff, 0);
 		}
 		else if(ball.getY()<0){
-			ball.move(vx, -vy);
+			vy=-vy;
+			double diff=ball.getY();
+			ball.move(0,-2*diff);
 		}
 		else if(ball.getX()<0){
-			ball.move(-vx, vy);
+			vx=-vx;
+			double diff=ball.getX();
+			ball.move(-2*diff, 0);
 		}
 		else if(ball.getY()>HEIGHT-ball.getHeight()){
 			vy=-vy;
-			
+						
 		}
 	}
 	
