@@ -205,7 +205,11 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
-	
+	/** takes the four corners of the square a the reference points and gets the element 
+	 * on those points, if any of the four points collide with an object, it returns that object,
+	 *  if not, then it returns a null value
+	 * @return
+	 */
 	private GObject getCollidingObject(){
 		GObject gobj1,gobj2,gobj3,gobj4;
 		gobj1=getElementAt(ball.getX(),ball.getY());
