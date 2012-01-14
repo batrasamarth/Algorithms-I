@@ -60,6 +60,7 @@ public class Breakout extends GraphicsProgram {
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
+		intro();
 		setup();
 		generateRandomXComponentVelocity();
 		
@@ -69,6 +70,16 @@ public class Breakout extends GraphicsProgram {
 			checkForCollisionPaddleBricks();
 			pause(30);
 		}
+	}
+	
+	private void intro(){
+		GLabel label=new GLabel("Samarth Batra's BREAKOUT!!!!!");
+		label.setFont("helvetica-36");
+		double x=(WIDTH-label.getWidth())/2;
+		double y=(HEIGHT-label.getAscent())/2;
+		add(label,x,y);
+		pause(3000);
+		remove(label);
 	}
 	
 	
