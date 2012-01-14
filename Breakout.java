@@ -173,7 +173,8 @@ public class Breakout extends GraphicsProgram {
 			ball.move(-vx, vy);
 		}
 		else if(ball.getY()>HEIGHT-ball.getHeight()){
-			ball.move(vx, -vy);
+			vy=-vy;
+			
 		}
 	}
 	
