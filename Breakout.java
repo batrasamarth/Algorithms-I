@@ -67,7 +67,7 @@ public class Breakout extends GraphicsProgram {
 			moveBall();
 			checkForCollisionWithWalls();
 			checkForCollisionPaddleBricks();
-			pause(10);
+			pause(50);
 		}
 	}
 	
