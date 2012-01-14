@@ -61,6 +61,10 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		setup();
+		
+		while(true){
+			moveBall();
+		}
 	}
 	
 	
@@ -137,6 +141,17 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	
+	/** generates the code for moving the ball around the world */
+	private void moveBall(){
+		RandomGenerator rgen=RandomGenerator.getInstance();
+		vx=rgen.nextDouble(1.0,3.0);
+		if(rgen.nextBoolean(0.5)){
+			vx=(-vx);
+		}
+		ball.move(vx, vy);
+	}
+	
+	
 	
 	
 	/** keeps track of the row number using 0 as its initial value
@@ -150,4 +165,13 @@ public class Breakout extends GraphicsProgram {
 	/** paddle and ball are used within multiple methods, that is why it is kept as an instance variable*/
 	private GRect paddle;
 	private GOval ball;
+	
+	/** indicates the velocity of the ball in x-direction which will get a random velocity
+	 * in the method moveBall */
+	private double vx;
+	
+	/** indicates the velocity of the ball in y-direction which starts with initial velocity 3.0 */
+	private double vy=3.0;
+	
+	
 }
