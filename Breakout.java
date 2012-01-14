@@ -61,6 +61,7 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		setup();
+		generateRandomXComponentVelocity();
 		
 		while(true){
 			moveBall();
@@ -142,13 +143,18 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	
-	/** generates the code for moving the ball around the world */
-	private void moveBall(){
+	private void generateRandomXComponentVelocity(){
 		RandomGenerator rgen=RandomGenerator.getInstance();
 		vx=rgen.nextDouble(1.0,3.0);
 		if(rgen.nextBoolean(0.5)){
 			vx=(-vx);
 		}
+	}
+	
+	
+	/** generates the code for moving the ball around the world */
+	private void moveBall(){
+		
 		ball.move(vx, vy);
 	}
 	
