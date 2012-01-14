@@ -196,7 +196,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		else if(ball.getY()>HEIGHT-ball.getHeight()){
 			
-						
+			createBall();			
 		}
 	}
 	
