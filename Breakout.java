@@ -74,6 +74,7 @@ public class Breakout extends GraphicsProgram {
 		createTwoRows(Color.GREEN);
 		createTwoRows(Color.CYAN);
 		createPaddle();
+		createBall();
 		addMouseListeners();
 		
 	}
@@ -127,6 +128,12 @@ public class Breakout extends GraphicsProgram {
 			}
 		
 	}
+	/** creates the ball right at the middle of the screen */
+	private void createBall(){
+		ball=new GOval(2*BALL_RADIUS,2*BALL_RADIUS);
+		ball.setColor(Color.RED);
+		add(ball,(getWidth()-ball.getWidth())/2,(getHeight()-ball.getHeight())/2);
+	}
 	
 	
 	
@@ -139,6 +146,7 @@ public class Breakout extends GraphicsProgram {
 	/** keeps the track of the last recorded x  coordinate of the paddle */
 	private double last;
 	
-	/** paddle is used within multiple methods, that is why it is kept as an instance variable*/
+	/** paddle and ball are used within multiple methods, that is why it is kept as an instance variable*/
 	private GRect paddle;
+	private GOval ball;
 }
