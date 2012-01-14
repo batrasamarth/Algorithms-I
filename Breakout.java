@@ -64,6 +64,7 @@ public class Breakout extends GraphicsProgram {
 		
 		while(true){
 			moveBall();
+			pause(100);
 		}
 	}
 	
