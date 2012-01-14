@@ -65,6 +65,7 @@ public class Breakout extends GraphicsProgram {
 		
 		while(true){
 			moveBall();
+			checkForCollisionWithWalls();
 			pause(100);
 		}
 	}
@@ -142,7 +143,9 @@ public class Breakout extends GraphicsProgram {
 		add(ball,(WIDTH-ball.getWidth())/2,(HEIGHT-ball.getHeight())/2);
 	}
 	
-	
+	/** generates the random value of x-component of the velocity at the start of the program
+	 * 
+	 */
 	private void generateRandomXComponentVelocity(){
 		RandomGenerator rgen=RandomGenerator.getInstance();
 		vx=rgen.nextDouble(1.0,3.0);
@@ -156,6 +159,22 @@ public class Breakout extends GraphicsProgram {
 	private void moveBall(){
 		
 		ball.move(vx, vy);
+	}
+	
+	
+	private void checkForCollisionWithWalls(){
+		if(ball.getX()>WIDTH-ball.getWidth()){
+			ball.move(-vx, vy);
+		}
+		else if(ball.getY()<0){
+			ball.move(vx, -vy);
+		}
+		else if(ball.getX()<0){
+			ball.move(-vx, vy);
+		}
+		else if(ball.getY()>HEIGHT-ball.getHeight()){
+			ball.move(vx, -vy);
+		}
 	}
 	
 	
