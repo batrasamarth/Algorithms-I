@@ -73,7 +73,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void intro(){
-		GLabel label=new GLabel("Samarth's BREAKOUT!!!!!");
+		GLabel label=new GLabel("Samarth's BREAKOUT!!!");
 		label.setFont("helvetica-36");
 		double x=(WIDTH-label.getWidth())/2;
 		double y=(HEIGHT-label.getAscent())/2;
