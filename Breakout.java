@@ -208,7 +208,7 @@ public class Breakout extends GraphicsProgram {
 		
 		if(collider==paddle){
 			vy=-vy;
-			createBall();
+			
 		}
 		else
 		if(collider!=null)	
