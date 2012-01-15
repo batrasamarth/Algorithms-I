@@ -257,6 +257,9 @@ public class Breakout extends GraphicsProgram {
 		}
 		else{
 			remove(ball);
+			GLabel label=new GLabel("GAME OVER");
+			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
+			pause(1000);
 		}
 	}
 	
