@@ -251,8 +251,9 @@ public class Breakout extends GraphicsProgram {
 			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
 			pause(1000);
 			vy=-vy;
+			remove(label);
 			generateRandomXComponentVelocity();
-			
+			createBall();
 			lives_remaining--;
 		}
 		else{
@@ -260,6 +261,7 @@ public class Breakout extends GraphicsProgram {
 			GLabel label=new GLabel("GAME OVER");
 			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
 			pause(1000);
+			remove(label);
 		}
 	}
 	
