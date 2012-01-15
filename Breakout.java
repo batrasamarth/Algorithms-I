@@ -246,6 +246,7 @@ public class Breakout extends GraphicsProgram {
 	
 	private void lifeLost(){
 		if(lives_remaining>0){
+			remove(ball);
 			GLabel label=new GLabel("lives remaning "+lives_remaining);
 			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
 			pause(1000);
