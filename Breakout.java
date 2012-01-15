@@ -253,6 +253,10 @@ public class Breakout extends GraphicsProgram {
 			vy=-vy;
 			generateRandomXComponentVelocity();
 			createBall();
+			lives_remaining--;
+		}
+		else{
+			remove(ball);
 		}
 	}
 	
