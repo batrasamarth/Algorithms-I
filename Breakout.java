@@ -195,10 +195,7 @@ public class Breakout extends GraphicsProgram {
 			ball.move(-2*diff, 0);
 		}
 		else if(ball.getY()>HEIGHT-ball.getHeight()){
-			remove(ball);
-			createBall();		
-			pause(100);
-			createBall();
+			lifeLost();
 		}
 	}
 	
@@ -247,6 +244,16 @@ public class Breakout extends GraphicsProgram {
 		else return gobj1;
 	}
 	
+	private void lifeLost(){
+		if(lives_remaining>0){
+			GLabel label=new GLabel("lives remaning "+lives_remaining);
+			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
+			pause(1000);
+			generateRandomXComponentVelocity();
+			createBall();
+		}
+	}
+	
 	
 	/** keeps track of the row number using 0 as its initial value
 	 * 0 indicates the first row
@@ -266,6 +273,8 @@ public class Breakout extends GraphicsProgram {
 	
 	/** indicates the velocity of the ball in y-direction which starts with initial velocity 3.0 */
 	private double vy=3.0;
-	
-	
+	/**keeps track of the number of lives remaining with the player and is decreased by one if 
+	 * the plater drops the ball
+	 */
+	private int lives_remaining=NTURNS;
 }
