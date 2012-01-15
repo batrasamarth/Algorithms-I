@@ -251,6 +251,7 @@ public class Breakout extends GraphicsProgram {
 			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
 			pause(1000);
 			vy=-vy;
+			generateRandomXComponentVelocity();
 			createBall();
 		}
 	}
