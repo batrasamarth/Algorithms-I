@@ -249,7 +249,7 @@ public class Breakout extends GraphicsProgram {
 			GLabel label=new GLabel("lives remaning "+lives_remaining);
 			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
 			pause(1000);
-			generateRandomXComponentVelocity();
+			
 			createBall();
 		}
 	}
