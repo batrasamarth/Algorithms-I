@@ -214,6 +214,13 @@ public class Breakout extends GraphicsProgram {
 		{
 			remove(collider);
 			vy=-vy;
+			bricks_remaining--;
+			if(bricks_remaining==0){
+				GLabel label=new GLabel("YOU WIN ");
+				label.setFont("Times new roman-36");
+				label.setColor(Color.RED);
+				add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
+			}
 		}
 	}
 	
@@ -244,6 +251,10 @@ public class Breakout extends GraphicsProgram {
 		else return gobj1;
 	}
 	
+	/** each time the payer drops the ball, this method reduces one life from the number of 
+	 * remaining lives and displays to the player no. of lives left with him, if the player 
+	 * does not have any, it declares the game over.
+	 */
 	private void lifeLost(){
 		if(lives_remaining>0){
 			remove(ball);
@@ -284,8 +295,14 @@ public class Breakout extends GraphicsProgram {
 	
 	/** indicates the velocity of the ball in y-direction which starts with initial velocity 3.0 */
 	private double vy=3.0;
+	
 	/**keeps track of the number of lives remaining with the player and is decreased by one if 
 	 * the plater drops the ball
 	 */
 	private int lives_remaining=NTURNS;
+	
+	/**keeps track of the number of bricks present in the game window, takes in intitial value
+	 * of the total number of bricks in the game window
+	 */
+	private int bricks_remaining=NBRICKS_PER_ROW*NBRICK_ROWS;
 }
