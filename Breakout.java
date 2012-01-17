@@ -295,7 +295,7 @@ public class Breakout extends GraphicsProgram {
 	private double vx;
 	
 	/** indicates the velocity of the ball in y-direction which starts with initial velocity 3.0 */
-	private double vy=3.0;
+	private double vy=7.0;
 	
 	/**keeps track of the number of lives remaining with the player and is decreased by one if 
 	 * the plater drops the ball
