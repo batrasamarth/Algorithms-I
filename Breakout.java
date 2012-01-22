@@ -68,7 +68,7 @@ public class Breakout extends GraphicsProgram {
 		generateRandomXComponentVelocity();
 		
 		while(true){
-			intro();
+			
 			moveBall();
 			checkForCollisionWithWalls();
 			checkForCollisionPaddleBricks();
