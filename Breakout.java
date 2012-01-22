@@ -56,6 +56,8 @@ public class Breakout extends GraphicsProgram {
 
 /** Number of turns */
 	private static final int NTURNS = 3;
+	
+	private static final int TOTAL_BRICKS=NBRICKS_PER_ROW*NBRICK_ROWS;
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -66,9 +68,11 @@ public class Breakout extends GraphicsProgram {
 		generateRandomXComponentVelocity();
 		
 		while(true){
+			intro();
 			moveBall();
 			checkForCollisionWithWalls();
 			checkForCollisionPaddleBricks();
+			checkForBonus();
 			pause(30);
 		}
 	}
@@ -250,6 +254,12 @@ public class Breakout extends GraphicsProgram {
 			return gobj4;
 		}
 		else return gobj1;
+	}
+	
+	private void checkForBonus(){
+		if(bricks_remaining==(TOTAL_BRICKS-10)){
+			paddle.setSize(PADDLE_WIDTH/2, PADDLE_HEIGHT);
+		}
 	}
 	
 	/** each time the payer drops the ball, this method reduces one life from the number of 
