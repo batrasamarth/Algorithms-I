@@ -260,8 +260,8 @@ public class Breakout extends GraphicsProgram {
 		if(bricks_remaining==(TOTAL_BRICKS-10)){
 			paddle.setSize(PADDLE_WIDTH/2, PADDLE_HEIGHT);
 		}
-		if(bricks_remaining==(TOTAL_BRICKS-20)){
-			vx+=8.0;
+		if(bricks_remaining==(TOTAL_BRICKS-10)){
+			vx=10;
 		}
 	}
 	
