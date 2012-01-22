@@ -72,7 +72,6 @@ public class Breakout extends GraphicsProgram {
 			moveBall();
 			checkForCollisionWithWalls();
 			checkForCollisionPaddleBricks();
-			checkForBonus();
 			pause(30);
 		}
 	}
@@ -256,14 +255,7 @@ public class Breakout extends GraphicsProgram {
 		else return gobj1;
 	}
 	
-	private void checkForBonus(){
-		if(bricks_remaining==(TOTAL_BRICKS-10)){
-			paddle.setSize(PADDLE_WIDTH/2, PADDLE_HEIGHT);
-		}
-		if(bricks_remaining==(TOTAL_BRICKS-10)){
-			vx=10;
-		}
-	}
+	
 	
 	/** each time the payer drops the ball, this method reduces one life from the number of 
 	 * remaining lives and displays to the player no. of lives left with him, if the player 
