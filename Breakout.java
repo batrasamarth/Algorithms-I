@@ -72,6 +72,7 @@ public class Breakout extends GraphicsProgram {
 			moveBall();
 			checkForCollisionWithWalls();
 			checkForCollisionPaddleBricks();
+			checkForExtras();
 			pause(30);
 		}
 	}
@@ -279,6 +280,15 @@ public class Breakout extends GraphicsProgram {
 			add(label,(WIDTH-label.getWidth())/2,(HEIGHT-label.getAscent())/2);
 			pause(1000);
 			remove(label);
+		}
+	}
+	
+	private void checkForExtras(){
+		if(bricks_remaining==TOTAL_BRICKS-10){
+			vy=16;
+		}
+		if(bricks_remaining==TOTAL_BRICKS-20){
+			paddle.setSize(PADDLE_WIDTH/2, PADDLE_HEIGHT);
 		}
 	}
 	
