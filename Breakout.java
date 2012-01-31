@@ -282,7 +282,12 @@ public class Breakout extends GraphicsProgram {
 			remove(label);
 		}
 	}
-	
+	/** currently the extras include increasing the speed of the ball after certain fixed number
+	 * of bricks destroyed and decreasing the width of the paddle by half.
+	 * the method uses a Boolean called avoid_repeat which ensures that even if no brick is destroyed
+	 * after an extra is initiated, the extra would not be called again, unless desired
+	 * 
+	 */
 	private void checkForExtras(){
 		if(bricks_remaining==TOTAL_BRICKS-10&&avoid_repeat==false){
 			vy=vy+4;
