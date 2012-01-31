@@ -285,7 +285,7 @@ public class Breakout extends GraphicsProgram {
 	
 	private void checkForExtras(){
 		if(bricks_remaining==TOTAL_BRICKS-10){
-			vy=16;
+			vy=vy*2;
 		}
 		if(bricks_remaining==TOTAL_BRICKS-20){
 			paddle.setSize(PADDLE_WIDTH/2, PADDLE_HEIGHT);
