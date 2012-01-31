@@ -284,8 +284,9 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void checkForExtras(){
-		if(bricks_remaining==TOTAL_BRICKS-10){
-			vy=vy*2;
+		if(bricks_remaining==TOTAL_BRICKS-10&&avoid_repeat==false){
+			vy=vy+4;
+			avoid_repeat=true;
 			return;
 		}
 		if(bricks_remaining==TOTAL_BRICKS-20){
@@ -322,4 +323,6 @@ public class Breakout extends GraphicsProgram {
 	 * of the total number of bricks in the game window
 	 */
 	private int bricks_remaining=NBRICKS_PER_ROW*NBRICK_ROWS;
+	
+	private boolean avoid_repeat=false;
 }
