@@ -289,9 +289,9 @@ public class Breakout extends GraphicsProgram {
 	 * 
 	 */
 	private void checkForExtras(){
-		if(bricks_remaining==TOTAL_BRICKS-10&&avoid_repeat==false){
+		if(bricks_remaining==TOTAL_BRICKS-2&&avoid_repeat==false){
 			vy=vy+4;
-			avoid_repeat=true;
+			
 			return;
 		}
 		if(bricks_remaining==TOTAL_BRICKS-20){
