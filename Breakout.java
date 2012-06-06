@@ -58,6 +58,8 @@ public class Breakout extends GraphicsProgram {
 	private static final int NTURNS = 3;
 	
 	private static final int TOTAL_BRICKS=NBRICKS_PER_ROW*NBRICK_ROWS;
+	
+	
 
 /* Method: run() */
 /** Runs the Breakout program. */
@@ -210,7 +212,7 @@ public class Breakout extends GraphicsProgram {
 	private void checkForCollisionPaddleBricks(){
 		GObject collider=getCollidingObject();
 		
-		if(collider==paddle){
+		if((collider==paddle)&&(lowerPointCollision==true)){
 			vy=-vy;
 			
 		}
@@ -229,6 +231,9 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	
+	
+	
 	/** takes the four corners of the square a the reference points and gets the element 
 	 * on those points, if any of the four points collide with an object, it returns that object,
 	 *  if not, then it returns a null value
@@ -240,7 +245,6 @@ public class Breakout extends GraphicsProgram {
 		gobj2=getElementAt(ball.getX()+(2*BALL_RADIUS),ball.getY());
 		gobj3=getElementAt(ball.getX(),ball.getY()+(2*BALL_RADIUS));
 		gobj4=getElementAt(ball.getX()+(2*BALL_RADIUS),ball.getY()+(2*BALL_RADIUS));
-		
 		if(gobj1!=null){
 			return gobj1;
 		}
@@ -248,9 +252,13 @@ public class Breakout extends GraphicsProgram {
 			return gobj2;
 		}
 		else if(gobj3!=null){
+			lowerPointCollision=true;
 			return gobj3;
+			
+			
 		}
 		else if(gobj4!=null){
+			lowerPointCollision=true;
 			return gobj4;
 		}
 		else return gobj1;
@@ -330,4 +338,8 @@ public class Breakout extends GraphicsProgram {
 	private int bricks_remaining=NBRICKS_PER_ROW*NBRICK_ROWS;
 	
 	private boolean avoid_repeat=false;
+	/** this boolean variable is created to verify that the ball gets rebounded only when it 
+	 * strikes the paddle from the lower two points and not the upper two points
+	 */
+	private boolean lowerPointCollision=false;
 }
